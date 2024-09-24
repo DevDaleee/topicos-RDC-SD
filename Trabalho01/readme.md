@@ -54,6 +54,9 @@ Este é um aplicativo web com vulnerabilidades de SQL Injection e XSS, projetado
 
 4. Acesse o aplicativo em `http://localhost:3000`.
 
+5. Divirta-se procurando as vulnerabilidades
+
+   
 ## Aviso
 
 Este aplicativo contém vulnerabilidades intencionalmente para fins educacionais. Não use em produção.
