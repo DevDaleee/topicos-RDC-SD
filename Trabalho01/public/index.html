@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Comentários</title>
+</head>
+<body>
+    <h1>Deixe seu comentário</h1>
+    <form action="/comment" method="POST">
+        <input type="text" name="comment" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="comments"></div>
+
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>Adicionar Usuário</h2>
+    <form action="/addUser" method="POST">
+        <input type="text" name="username" placeholder="Novo Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Pesquisar Usuário</h2>
+    <form action="/search" method="GET">
+        <input type="text" name="username" placeholder="Pesquisar Usuário" required>
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    <script>
+        // Carregar comentários de forma insegura
+        fetch('/comments')
+            .then(response => response.json())
+            .then(data => {
+                const commentsDiv = document.getElementById('comments');
+                data.forEach(comment => {
+                    commentsDiv.innerHTML += `<p>${comment}</p>`; // Vulnerabilidade XSS
+                });
+            });
+    </script>
+</body>
+</html>

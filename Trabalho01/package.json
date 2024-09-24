@@ -1,0 +1,14 @@
+{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "description": "Web app with SQL Injection and XSS vulnerabilities",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
