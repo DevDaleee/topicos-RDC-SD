@@ -1,4 +1,4 @@
-# Aprendendo a identificar SQL Injection e XSS
+# My Web App
 
 Este é um aplicativo web com vulnerabilidades de SQL Injection e XSS, projetado para fins educacionais.
 
@@ -54,9 +54,27 @@ Este é um aplicativo web com vulnerabilidades de SQL Injection e XSS, projetado
 
 4. Acesse o aplicativo em `http://localhost:3000`.
 
-5. Divirta-se procurando as vulnerabilidades
+## Vulnerabilidades
 
+### SQL Injection
+
+1. **Login (/login)**:
+   - O endpoint de login permite SQL Injection, pois as entradas do `username` e `password` são concatenadas diretamente na consulta SQL sem validação ou uso de parâmetros preparados.
    
+2. **Pesquisa de Usuário (/search)**:
+   - O endpoint de pesquisa de usuário também é vulnerável a SQL Injection, permitindo que um atacante manipule a consulta inserindo caracteres especiais no campo `username`.
+
+3. **Adicionar Usuário (/addUser)**:
+   - A rota que adiciona um novo usuário não valida corretamente os campos inseridos, tornando-a vulnerável a SQL Injection.
+
+### XSS
+
+1. **Comentários (/comment)**:
+   - O formulário de comentários exibe o conteúdo inserido pelo usuário diretamente na página sem escapar ou sanitizar o conteúdo, permitindo ataques de Cross-Site Scripting (XSS).
+
+2. **Exibição de Comentários (/comments)**:
+   - Quando os comentários são carregados, eles são renderizados diretamente no DOM do navegador, permitindo que scripts maliciosos sejam executados.
+
 ## Aviso
 
 Este aplicativo contém vulnerabilidades intencionalmente para fins educacionais. Não use em produção.
